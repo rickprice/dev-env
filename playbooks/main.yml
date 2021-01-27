@@ -6,7 +6,7 @@
     - python
     - { role: chaosmail.nodejs }
     - ruby
-    - spotify
+#    - spotify
     - chromium
     - dropbox
     - encfs
