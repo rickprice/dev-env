@@ -6,7 +6,9 @@
     name: neovim
     state: present
 
-- name: Install Ruby Gems
-  community.general.gem:
-    with_items: "{{ ruby_gems | default([]) }}"
+- name: Install configured gems.
+  gem:
+    name: "{{ item }}"
     state: present
+  become: true
+  with_items: "{{ ruby_gems | default([]) }}"
