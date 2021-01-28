@@ -1,12 +1,12 @@
 ---
 # Install & Configure Chrome
 
-- name: Add an Apt signing key
+- name: Add Google signing key
   ansible.builtin.apt_key:
     url: https://dl-ssl.google.com/linux/linux_signing_key.pub
     state: present
 
-- name: Add specified repository into sources list using specified filename
+- name:  Add Google Chrome repository
   ansible.builtin.apt_repository:
     repo: deb http://dl.google.com/linux/chrome/deb/ stable main
     state: present
@@ -14,7 +14,7 @@
   when: ansible_pkg_mgr == 'apt'
   tags: [ chrome ]
 
-- name: Package prerequisites Apt
+- name: Install Google Chrome Package
   apt:
     update_cache: True
     pkg:
