@@ -7,6 +7,6 @@ ansible --version;
 cd /root;
 
 mkdir -p .external-roles
-ansible-galaxy install -p .external-roles -r requirements.yml
+ansible-galaxy install -p .external-roles -r ../requirements.yml
 
 ansible-playbook playbooks/main.yml;
