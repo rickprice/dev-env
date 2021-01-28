@@ -4,3 +4,4 @@
 # Import roles from ansible galaxy
 - src: chaosmail.nodejs
 - src: chaosmail.sublime-text
+- src: community.general.gem
