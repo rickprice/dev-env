@@ -2,7 +2,9 @@
 # Install & Configure Spotify
 
 - name: Add spotify repository
-  apt_repository: repo="{{ spotify_ppa }}" state=present
+  apt_repository: 
+    repo="{{ spotify_ppa }}" 
+    state=present
   sudo: true
 
 - name: Add public key

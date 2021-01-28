@@ -6,13 +6,13 @@
     - python
     - { role: chaosmail.nodejs }
     - ruby
-    - spotify
-    - chromium
-    - dropbox
-    - encfs
-    - { role: chaosmail.sublime-text }
-    - vagrant
-    - docker
-    - vscode
+#    - spotify
+    - chrome
+#    - dropbox
+#    - encfs
+#    - { role: chaosmail.sublime-text }
+#    - vagrant
+#    - docker
+#    - vscode
   become_user: root
   become: true
