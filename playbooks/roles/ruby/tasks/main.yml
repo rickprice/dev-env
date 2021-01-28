@@ -1,6 +1,6 @@
 ---
 # Install & Configure Ruby
-- name: Install latest ruby package
+- name: Install ruby packages
   apt:
     pkg:
     - ruby
