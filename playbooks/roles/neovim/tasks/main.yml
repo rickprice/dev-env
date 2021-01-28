@@ -4,7 +4,7 @@
     repo: 'ppa:neovim-ppa/unstable'
     state: present
     filename: neovim
-  when: ansible_pkg_mgr = 'apt'
+  when: ansible_pkg_mgr == 'apt'
   tags: [ neovim ]
 
 - name: Install NeoVim
@@ -12,7 +12,7 @@
     pkg:
     - neovim
   become: yes
-  when: ansible_pkg_mgr = 'apt'
+  when: ansible_pkg_mgr == 'apt'
   tags: [ neovim ]
 
 # I personally like to use Neovim for everything instead of Vi*, YMMV
