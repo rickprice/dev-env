@@ -23,12 +23,13 @@
     priority: 60
   when: ansible_os_family == 'Debian' or ansible_os_family == 'Pop!_OS'
   
-- name: Use Neovim as vim
-  alternatives:
-    name: vim
-    path: /usr/bin/nvim
-    priority: 60
-  when: ansible_os_family == 'Debian' or ansible_os_family == 'Pop!_OS'
+  # This one breaks sometimes
+# - name: Use Neovim as vim
+#   alternatives:
+#     name: vim
+#     path: /usr/bin/nvim
+#     priority: 60
+#   when: ansible_os_family == 'Debian' or ansible_os_family == 'Pop!_OS'
   
 - name: Use Neovim as editor
   alternatives:
