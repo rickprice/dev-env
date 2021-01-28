@@ -4,3 +4,4 @@
     path: /etc/default/keyboard
     regexp: 'XKBOPTIONS=""'
     line: 'XKBOPTIONS="ctrl:nocaps"'
+  when: ansible_os_family == 'Debian'
