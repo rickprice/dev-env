@@ -3,4 +3,4 @@
 # Root Directory
 DIR=~/.dev-env
 
-ansible-playbook $DIR/playbooks/main.yml
+ansible-playbook --ask-become-pass $DIR/playbooks/main.yml
