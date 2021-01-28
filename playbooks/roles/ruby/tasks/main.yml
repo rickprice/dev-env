@@ -7,7 +7,7 @@
     - ruby-dev
     - rubygems
   become: yes
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  when: ansible_pkg_mgr == 'apt'
   tags: [ ruby ]
  
 # Install Ruby Gems

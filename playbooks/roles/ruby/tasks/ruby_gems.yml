@@ -1,7 +1,12 @@
 ---
 # Install & Configure Ruby Gems
 
-- name: Install all custom packages
-  command: "gem install --no-ri --no-rdoc {{ item }}"
-  with_items: "{{ ruby_gems | default([]) }}"
-  become: true
+- name: Install Ruby Gems for NeoVim
+  community.general.gem:
+    name: neovim
+    state: present
+
+- name: Install Ruby Gems
+  community.general.gem:
+    with_items: "{{ ruby_gems | default([]) }}"
+    state: present
