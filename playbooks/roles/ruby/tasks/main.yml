@@ -1,8 +1,6 @@
 ---
 # Install & Configure Ruby
-
 - name: Install latest ruby package
-  state: present
   pkg:
     - ruby
     - ruby-dev
