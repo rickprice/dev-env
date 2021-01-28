@@ -4,7 +4,7 @@
     repo: 'ppa:neovim-ppa/unstable'
     state: present
     filename: neovim
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  when: ansible_os_family == 'Debian'
   tags: [ neovim ]
 
 - name: Install NeoVim
@@ -12,7 +12,7 @@
     pkg:
     - neovim
   become: yes
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  when: ansible_os_family == 'Debian'
   tags: [ neovim ]
 
 # I personally like to use Neovim for everything instead of Vi*, YMMV
@@ -21,21 +21,25 @@
     name: vi
     path: /usr/bin/nvim
     priority: 60
+  when: ansible_os_family == 'Debian'
   
 - name: Use Neovim as vim
   alternatives:
     name: vim
     path: /usr/bin/nvim
     priority: 60
+  when: ansible_os_family == 'Debian'
   
 - name: Use Neovim as editor
   alternatives:
     name: editor
     path: /usr/bin/nvim
     priority: 60
+  when: ansible_os_family == 'Debian'
   
 - name: Use Neovim as view
   alternatives:
     name: view
     path: /usr/bin/nvim
     priority: 60
+  when: ansible_os_family == 'Debian'
