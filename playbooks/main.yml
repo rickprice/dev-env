@@ -4,11 +4,12 @@
   roles:
     - RemapCapsLockToCtrl
     - apt
-    - python
-    - { role: chaosmail.nodejs }
+    - neovim
+    - chrome
+#    - python
+#    - { role: chaosmail.nodejs }
     - ruby
 #    - spotify
-    - chrome
 #    - dropbox
 #    - encfs
 #    - { role: chaosmail.sublime-text }
