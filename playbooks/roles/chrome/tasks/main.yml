@@ -6,6 +6,8 @@
     repo: deb http://dl.google.com/linux/chrome/deb/ stable main
     state: present
     filename: google-chrome
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  tags: [ chrome ]
 
 - name: Package prerequisites Apt
   apt:

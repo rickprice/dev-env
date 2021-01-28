@@ -1,0 +1,41 @@
+---
+- name: Add NeoVim PPA (I'm using unstable to get newest NeoVim)
+  ansible.builtin.apt_repository:
+    repo: 'ppa:neovim-ppa/unstable'
+    state: present
+    filename: neovim
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  tags: [ neovim ]
+
+- name: Install NeoVim
+  apt:
+    pkg:
+    - neovim
+  become: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  tags: [ neovim ]
+
+# I personally like to use Neovim for everything instead of Vi*, YMMV
+- name: Use Neovim as vi
+  alternatives:
+    name: vi
+    path: /usr/bin/nvim
+    priority: 60
+  
+- name: Use Neovim as vim
+  alternatives:
+    name: vim
+    path: /usr/bin/nvim
+    priority: 60
+  
+- name: Use Neovim as editor
+  alternatives:
+    name: editor
+    path: /usr/bin/nvim
+    priority: 60
+  
+- name: Use Neovim as view
+  alternatives:
+    name: view
+    path: /usr/bin/nvim
+    priority: 60
