@@ -8,7 +8,7 @@ sudo apt-get install -y git python3 python3-pip ansible
 
 # Install external roles
 mkdir -p $DIR/.external-roles
-ansible-galaxy install -p $DIR/.external-roles -r $DIR/requirements.yml
+ansible-galaxy install -r $DIR/requirements.yml
 
 # Make run script executable and link it
 chmod u+x $DIR/scripts/run.sh
