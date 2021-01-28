@@ -11,5 +11,5 @@ mkdir -p .external-roles
 ansible-galaxy install -p .external-roles -r requirements.yml
 
 # Make run script executable and link it
-chmod u+x $DIR/run.sh
+chmod u+x $DIR/scripts/run.sh
 sudo ln -sf $DIR/scripts/run.sh /usr/bin/dev-env
