@@ -2,13 +2,15 @@
 # Install & Configure Ruby
 
 - name: Install latest ruby package
-  apt: pkg="{{ item }}" state=present force=yes
-  with_items:
+  state: present
+  force: yes
+  pkg:
     - ruby
     - ruby-dev
     - rubygems
-  sudo: true
-
+  become: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  tags: [ ruby ]
+ 
 # Install Ruby Gems
-
 - include_tasks: ruby_gems.yml
