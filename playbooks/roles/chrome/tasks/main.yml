@@ -16,6 +16,7 @@
 
 - name: Package prerequisites Apt
   apt:
+    update_cache: True
     pkg:
     - chrome
   become: yes
