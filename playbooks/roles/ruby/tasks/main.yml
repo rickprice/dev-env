@@ -3,7 +3,6 @@
 
 - name: Install latest ruby package
   state: present
-  force: yes
   pkg:
     - ruby
     - ruby-dev
