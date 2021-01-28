@@ -1,7 +1,8 @@
 ---
 # Install & Configure Ruby
 - name: Install latest ruby package
-  pkg:
+  apt:
+    pkg:
     - ruby
     - ruby-dev
     - rubygems
