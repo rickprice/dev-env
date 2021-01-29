@@ -1,21 +1,25 @@
 ---
 # Install & Configure Vagrant
-# https://vagrant-deb.linestarve.com/
+- name: Add Hashicorp signing key
+  ansible.builtin.apt_key:
+    url: https://apt.releases.hashicorp.com/gpg
+    state: present
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ vagrant ]
 
-- name: Add vagrant repository
-  apt_repository: repo="{{ vagrant_ppa }}" state=present
-  sudo: true
+- name:  Add Hashicorp repository
+  ansible.builtin.apt_repository:
+    repo: deb https://apt.releases.hashicorp.com stable main
+    state: present
+    filename: hashicorp-vagrant
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ vagrant ]
 
-- name: Add public key
-  apt_key: keyserver="{{ vagrant_ppa_keyserver }}" id="{{ vagrant_ppa_id }}" state=present
-  sudo: true
-
-- name: Update package manager
-  apt: update_cache=yes
-  sudo: true
-
-- name: Install latest vagrant package
-  apt: pkg="{{ item }}" state=latest
-  with_items:
+- name: Install Vagrant Package
+  apt:
+    update_cache: True
+    pkg:
     - vagrant
-  sudo: true
+  become: yes
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ vagrant ]
