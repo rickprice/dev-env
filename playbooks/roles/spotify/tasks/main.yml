@@ -5,24 +5,29 @@
   apt_repository: 
     repo: "{{ spotify_ppa }}" 
     state: present
-  become: true
+    filename: spotify
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ spotify ]
 
 - name: Add Spotify public key
   apt_key: 
     keyserver: "{{ spotify_ppa_keyserver }}"
     id: "{{ spotify_ppa_id }}" 
     state: present
+  when: ansible_pkg_mgr == 'apt'
   become: true
+  tags: [ spotify ]
 
 - name: Update packages
   apt: 
     update_cache: yes
   become: true
+  tags: [ spotify ]
 
 - name: Install latest Spotify package
   apt: 
     pkg:
     - spotify-client
-  become: true
-  state: latest
-  force: yes
+  become: yes
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ spotify ]
