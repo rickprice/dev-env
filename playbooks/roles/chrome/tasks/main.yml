@@ -5,6 +5,7 @@
   ansible.builtin.apt_key:
     url: https://dl-ssl.google.com/linux/linux_signing_key.pub
     state: present
+  when: ansible_pkg_mgr == 'apt'
   tags: [ chrome ]
 
 - name:  Add Google Chrome repository
