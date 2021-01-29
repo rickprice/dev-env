@@ -62,3 +62,5 @@ pip3_packages:
   - jupyter
   - beautifulsoup4
   - Jinja2
+    # Needed for Ansible to talk to Windows hosts
+  - winrm
