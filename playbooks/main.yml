@@ -7,7 +7,7 @@
     - neovim
     - chrome
     - python
-#    - { role: chaosmail.nodejs }
+    - { role: chaosmail.nodejs }
     - ruby
 #    - spotify
 #    - dropbox
