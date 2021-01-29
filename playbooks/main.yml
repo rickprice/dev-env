@@ -10,7 +10,7 @@
 #    - { role: chaosmail.nodejs }
     - ruby
     - spotify
-#    - dropbox
+    - dropbox
 #    - encfs
 #    - { role: chaosmail.sublime-text }
 #    - vagrant
