@@ -1,14 +1,6 @@
 ---
 # Install & Configure Spotify
 
-- name: Add Spotify repository
-  apt_repository: 
-    repo: "{{ spotify_ppa }}" 
-    state: present
-    filename: spotify
-  when: ansible_pkg_mgr == 'apt'
-  tags: [ spotify ]
-
 - name: Add Spotify public key
   apt_key: 
     keyserver: "{{ spotify_ppa_keyserver }}"
@@ -16,6 +8,14 @@
     state: present
   when: ansible_pkg_mgr == 'apt'
   become: true
+  tags: [ spotify ]
+
+- name: Add Spotify repository
+  apt_repository: 
+    repo: "{{ spotify_ppa }}" 
+    state: present
+    filename: spotify
+  when: ansible_pkg_mgr == 'apt'
   tags: [ spotify ]
 
 - name: Install latest Spotify package
