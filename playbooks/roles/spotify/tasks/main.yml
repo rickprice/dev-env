@@ -18,14 +18,9 @@
   become: true
   tags: [ spotify ]
 
-- name: Update packages
-  apt: 
-    update_cache: yes
-  become: true
-  tags: [ spotify ]
-
 - name: Install latest Spotify package
   apt: 
+    update_cache: yes
     pkg:
     - spotify-client
   become: yes
