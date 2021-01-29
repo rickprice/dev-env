@@ -3,7 +3,7 @@
 
 - name: Update pip3
   pip: 
-    name: pip3
+    name: pip
     state: latest 
     executable: pip3
   become: true
