@@ -1,8 +1,11 @@
 ---
 # Install Python 3 Packages
 
-- name: Update pip2
-  pip: name="pip" state=latest executable=pip3
+- name: Update pip3
+  pip: 
+    name: pip3
+    state: latest 
+    executable: pip3
   become: true
 
 - name: Install python3 packages with pip3

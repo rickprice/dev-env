@@ -2,7 +2,9 @@
 # Install Python 2 Packages
 
 - name: Update pip2
-  pip: name="pip" state=latest
+  pip: 
+    name: pip
+    state: latest
   become: true
 
 - name: Install python2 packages with pip2

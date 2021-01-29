@@ -6,7 +6,7 @@
     - apt
     - neovim
     - chrome
-#    - python
+    - python
 #    - { role: chaosmail.nodejs }
     - ruby
 #    - spotify
