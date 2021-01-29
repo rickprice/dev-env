@@ -6,6 +6,16 @@
     - python3
     - python3-pip
     - python-is-python3
+# I don't want to use Python2
+#    - python
+#    - python-pip
+  become: yes
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ python ]
+
+- name: Install python packages I care a lot about
+  apt:
+    pkg:
     - flake8
     - black
     - mypy
@@ -13,9 +23,6 @@
     - python-black-doc
     - python3-pynvim
     - python3-venv
-# I don't want to use Python2
-#    - python
-#    - python-pip
   become: yes
   when: ansible_pkg_mgr == 'apt'
   tags: [ python ]
