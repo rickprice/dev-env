@@ -13,7 +13,7 @@
     - dropbox
 #    - encfs
 #    - { role: chaosmail.sublime-text }
-     - vagrant
+    - vagrant
 #    - docker
 #    - vscode
   become_user: root
