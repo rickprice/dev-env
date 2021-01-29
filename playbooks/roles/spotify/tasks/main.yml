@@ -1,22 +1,28 @@
 ---
 # Install & Configure Spotify
 
-- name: Add spotify repository
+- name: Add Spotify repository
   apt_repository: 
-    repo="{{ spotify_ppa }}" 
-    state=present
-  sudo: true
+    repo: "{{ spotify_ppa }}" 
+    state: present
+  become: true
 
-- name: Add public key
-  apt_key: keyserver="{{ spotify_ppa_keyserver }}" id="{{ spotify_ppa_id }}" state=present
-  sudo: true
+- name: Add Spotify public key
+  apt_key: 
+    keyserver: "{{ spotify_ppa_keyserver }}"
+    id: "{{ spotify_ppa_id }}" 
+    state: present
+  become: true
 
-- name: Update package manager
-  apt: update_cache=yes
-  sudo: true
+- name: Update packages
+  apt: 
+    update_cache: yes
+  become: true
 
-- name: Install latest spotify package
-  apt: pkg="{{ item }}" state=latest force=yes
-  with_items:
+- name: Install latest Spotify package
+  apt: 
+    pkg:
     - spotify-client
-  sudo: true
+  become: true
+  state: latest
+  force: yes
