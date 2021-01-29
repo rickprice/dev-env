@@ -5,13 +5,23 @@
     pkg:
     - python3
     - python3-pip
-    - python
-    - python-pip
+    - python-is-python3
+    - flake8
+    - black
+    - mypy
+    - mypy-doc
+    - python-black-doc
+    - python3-pynvim
+    - python3-venv
+# I don't want to use Python2
+#    - python
+#    - python-pip
   become: yes
   when: ansible_pkg_mgr == 'apt'
   tags: [ python ]
 
 # Install Pip packages
 
-- include: pip2.yml
+# I don't want to use Python2
+#- include: pip2.yml
 - include: pip3.yml
