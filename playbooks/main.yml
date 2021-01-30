@@ -14,5 +14,6 @@
     - vagrant
     - docker
     - vscode
+    - git
   become_user: root
   become: true

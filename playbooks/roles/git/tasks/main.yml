@@ -1,0 +1,20 @@
+---
+- name: Add Git PPA
+  ansible.builtin.apt_repository:
+    repo: ppa:git-core/ppa
+    state: present
+    filename: git
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ git ]
+
+- name: Install git
+  apt:
+    pkg:
+    - git
+    - git-lfs
+  become: yes
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ git ]
+
+  # need to run a shell command to configure git for pulls
+  # git config --global pull.rebase false
