@@ -9,7 +9,7 @@
 
 - name:  Add Hashicorp repository
   ansible.builtin.apt_repository:
-    repo: deb [arch=amd64] https://apt.releases.hashicorp.com stable main
+    repo: deb [arch=amd64] https://apt.releases.hashicorp.com groovy main
     state: present
     filename: hashicorp-vagrant
   when: ansible_pkg_mgr == 'apt'
