@@ -9,7 +9,7 @@
   when: ansible_pkg_mgr == 'apt'
   tags: [ docker ]
 
-- name:  Add Docker docker repository
+- name: Add Docker docker repository
   ansible.builtin.apt_repository:
     repo: "{{ docker_ppa }}"
     state: present

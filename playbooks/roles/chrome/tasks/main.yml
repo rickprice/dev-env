@@ -8,7 +8,7 @@
   when: ansible_pkg_mgr == 'apt'
   tags: [ chrome ]
 
-- name:  Add Google Chrome repository
+- name: Add Google Chrome repository
   ansible.builtin.apt_repository:
     repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
     state: present
