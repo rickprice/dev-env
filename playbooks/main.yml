@@ -14,7 +14,7 @@
 #    - encfs
 #    - { role: chaosmail.sublime-text }
     - vagrant
-#    - docker
+    - docker
 #    - vscode
   become_user: root
   become: true

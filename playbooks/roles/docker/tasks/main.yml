@@ -1,20 +1,27 @@
 ---
 # Install & Configure Docker
 
-- name: Add docker repository
-  apt_repository: repo="{{ docker_ppa }}" state=present
-  sudo: true
+- name: Add Docker signing key
+  ansible.builtin.apt_key:
+    url: "{{ docker_ppa_key }}"
+    id: "{{ docker_ppa_id }}"
+    state: present
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ docker ]
 
-- name: Add public key
-  apt_key: url="{{ docker_ppa_key }}" id="{{ docker_ppa_id }}" state=present
-  sudo: true
+- name:  Add Docker docker repository
+  ansible.builtin.apt_repository:
+    repo: "{{ docker_ppa }}"
+    state: present
+    filename: docker
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ docker ]
 
-- name: Update package manager
-  apt: update_cache=yes
-  sudo: true
-
-- name: Install latest docker package
-  apt: pkg="{{ item }}" state=latest
-  with_items:
+- name: Install Docker Package
+  apt:
+    update_cache: True
+    pkg:
     - docker-ce
-  sudo: true
+  become: yes
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ docker ]
