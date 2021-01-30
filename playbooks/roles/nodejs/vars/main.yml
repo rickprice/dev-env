@@ -1,5 +1,5 @@
 ---
 
-nodejs_ppa: ppa:chris-lea/node.js
+nodejs_ppa: deb https://deb.nodesource.com/latest groovy main
 nodejs_ppa_key: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
 nodejs_ppa_id: 1655A0AB68576280
