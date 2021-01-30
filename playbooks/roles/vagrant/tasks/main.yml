@@ -7,15 +7,15 @@
   when: ansible_pkg_mgr == 'apt'
   tags: [ vagrant ]
 
-- name:  Add Ansible repository
+- name:  Add Hashicorp repository
   ansible.builtin.apt_repository:
-    repo: ppa:ansible/ansible
+    repo: deb [arch=amd64] https://apt.releases.hashicorp.com stable main
     state: present
     filename: hashicorp-vagrant
   when: ansible_pkg_mgr == 'apt'
   tags: [ vagrant ]
 
-- name: Install Vagrant Package
+- name: Install Vagrant Package from Hashicorp
   apt:
     update_cache: True
     pkg:
