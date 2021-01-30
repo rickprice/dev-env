@@ -1,11 +1,11 @@
 ---
 # Install & Configure Vagrant
-# - name: Add Hashicorp signing key
-#   ansible.builtin.apt_key:
-#     url: https://apt.releases.hashicorp.com/gpg
-#     state: present
-#   when: ansible_pkg_mgr == 'apt'
-#   tags: [ vagrant ]
+- name: Add Hashicorp signing key
+  ansible.builtin.apt_key:
+    url: https://apt.releases.hashicorp.com/gpg
+    state: present
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ vagrant ]
 
 - name:  Add Ansible repository
   ansible.builtin.apt_repository:
