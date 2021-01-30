@@ -7,12 +7,10 @@
     - neovim
     - chrome
     - python
-#    - { role: chaosmail.nodejs }
+    - nodejs
     - ruby
     - spotify
     - dropbox
-#    - encfs
-#    - { role: chaosmail.sublime-text }
     - vagrant
     - docker
     - vscode

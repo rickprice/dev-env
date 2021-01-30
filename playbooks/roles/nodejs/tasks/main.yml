@@ -1,0 +1,27 @@
+---
+# Install & Configure NodeJS
+
+- name: Add Nodejs signing key
+  ansible.builtin.apt_key:
+    url: "{{ nodejs_ppa_key }}"
+    id: "{{ nodejs_ppa_id }}"
+    state: present
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ nodejs ]
+
+- name: Add Nodejs repository
+  ansible.builtin.apt_repository:
+    repo: "{{ nodejs_ppa }}"
+    state: present
+    filename: nodejs
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ nodejs ]
+
+- name: Install Nodejs Package
+  apt:
+    update_cache: True
+    pkg:
+    - nodejs
+  become: yes
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ nodejs ]
