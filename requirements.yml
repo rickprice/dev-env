@@ -2,5 +2,6 @@
 # Requirements for dev-env
 
 # Import roles from ansible galaxy
-- src: chaosmail.nodejs
-- src: chaosmail.sublime-text
+#- src: chaosmail.nodejs
+#- src: chaosmail.sublime-text
+- src: hurricanehrndz.rustup
