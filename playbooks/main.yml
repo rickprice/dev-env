@@ -15,5 +15,6 @@
     - docker
     - vscode
     - git
+    - ansible-rustup
   become_user: root
   become: true
