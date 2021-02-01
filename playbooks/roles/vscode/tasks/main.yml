@@ -1,5 +1,5 @@
 ---
-# Install & Configure Sublime Text
+# Install & Configure VSCode
 
 - name: Add VSCode signing key
   ansible.builtin.apt_key:

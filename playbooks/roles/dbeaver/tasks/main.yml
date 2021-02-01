@@ -1,0 +1,25 @@
+---
+# - name: Add DBeaver signing key
+#   ansible.builtin.apt_key:
+#     url: "{{ dbeaver_ppa_key }}"
+#     id: "{{ dbeaver_ppa_id }}"
+#     state: present
+#   when: ansible_pkg_mgr == 'apt'
+#   tags: [ dbeaver ]
+
+- name: Add DBeaver repository
+  ansible.builtin.apt_repository:
+    repo: "{{ dbeaver_ppa }}"
+    state: present
+    filename: dbeaver
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ dbeaver ]
+
+- name: Install DBeaver Package
+  apt:
+    update_cache: True
+    pkg:
+    - dbeaver-ce
+  become: yes
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ dbeaver ]
