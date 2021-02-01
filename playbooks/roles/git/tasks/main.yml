@@ -16,5 +16,6 @@
   when: ansible_pkg_mgr == 'apt'
   tags: [ git ]
 
-  # need to run a shell command to configure git for pulls
-  # git config --global pull.rebase false
+  # need to run a shell command to configure git for pulls and for personal information
+- name: Configure rebase
+  command: git config --global pull.rebase false

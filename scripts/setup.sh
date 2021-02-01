@@ -3,6 +3,10 @@
 # Current directory
 DIR=~/.dev-env
 
+# Install Ansible PPA
+sudo add-apt-repository ppa:ansible/ansible
+sudo apt-get update
+
 # Install Git, Python3, PIP and Ansible
 sudo apt-get install -y git python3 python3-pip ansible
 
