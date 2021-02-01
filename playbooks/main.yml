@@ -17,5 +17,6 @@
     - git
     - hurricanehrndz.rustup
     - dbeaver
+    - islander.alacritty
   become_user: root
   become: true
