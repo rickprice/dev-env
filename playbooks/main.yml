@@ -16,5 +16,6 @@
     - vscode
     - git
     - hurricanehrndz.rustup
+    - dbeaver
   become_user: root
   become: true
