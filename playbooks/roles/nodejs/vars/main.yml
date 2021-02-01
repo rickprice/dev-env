@@ -1,7 +1,7 @@
 ---
 
 # This should be set in your main vars
-#nodejs_version: node_15.x
+nodejs_version: node_15.x
 
 nodejs_ppa: deb https://deb.nodesource.com/{{ nodejs_version }} groovy main
 nodejs_ppa_key: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
