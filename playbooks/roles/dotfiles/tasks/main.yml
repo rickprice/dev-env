@@ -3,7 +3,7 @@
 
 - name: Ensure the requested shell is installed
   apt:
-    pkgs:
+    package:
       - '{{ dotfiles_shell }}'
   become: true
   when: ansible_pkg_mgr == 'apt'
