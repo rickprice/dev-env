@@ -2,10 +2,11 @@
   hosts: 127.0.0.1
   connection: local
   roles:
-    - hurricanehrndz.rustup
-    - alacritty
     - RemapCapsLockToCtrl
     - apt
+    - git
+    - hurricanehrndz.rustup
+    - alacritty
     - neovim
     - chrome
     - python
@@ -16,7 +17,6 @@
     - vagrant
     - docker
     - vscode
-    - git
     - dbeaver
   tasks:
     - name: Printing all the environment​ variables in Ansible
