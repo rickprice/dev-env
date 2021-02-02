@@ -75,4 +75,4 @@ pip3_packages:
   - winrm
 
 # Where to install Rust
-rustup_user: rprice
+rustup_user: fprice
