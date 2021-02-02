@@ -73,6 +73,3 @@ pip3_packages:
   - Jinja2
     # Needed for Ansible to talk to Windows hosts
   - winrm
-
-# Where to install Rust
-rustup_user: fprice
