@@ -15,20 +15,20 @@ apt_packages:
   - keepassx
   - pandoc
   # These are packages I tend to use a lot
-  - ripgrep 
-  - stow 
-  - universal-ctags 
-  - golang 
-  - locales 
-  - fd-find 
-  - fzf 
-  - vifm 
-  - dos2unix 
+  - ripgrep
+  - stow
+  - universal-ctags
+  - golang
+  - locales
+  - fd-find
+  - fzf
+  - vifm
+  - dos2unix
   - tmux
   # I use this one to strip ansii colour codes from files like logs
-  - colorized-logs 
-  - pass 
-  - mutt 
+  - colorized-logs
+  - pass
+  - mutt
   # This is needed for vim-clap and vim-todoist Neovim Plugins
   - libssl-dev \
   - build-essential \
