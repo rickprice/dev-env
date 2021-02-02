@@ -4,19 +4,19 @@
 - name: Ensure the requested shell is installed
   apt:
     pkgs:
-      - '{{ dotfiles.shell }}'
+      - '{{ dotfiles_shell }}'
   become: true
   when: ansible_pkg_mgr == 'apt'
   tags: [ dotfiles ]
 
 - name: Set the default shell as requested
-  command: chsh --shell /bin/{{ dotfiles.shell }}
+  command: chsh --shell /bin/{{ dotfiles_shell }}
   register: chsh_check
   failed_when: chsh_check.rc > 0
   changed_when: chsh_check.rc == 0
   tags: [ dotfiles ]
 
-- name: 'Download users dotfiles {{ dotfiles.git_url }}'
+- name: 'Download users dotfiles {{ dotfiles_git_url }}'
   git: 
     repo: '{{ dotfiles_git_url | default ("https://github.com/rickprice/dotfiles.git") }}'
     dest: ~/.dotfiles
