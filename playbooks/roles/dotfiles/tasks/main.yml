@@ -4,7 +4,7 @@
 - name: Ensure the requested shell is installed
   apt:
     pkgs:
-      - {{ dotfiles.shell }}
+      - '{{ dotfiles.shell }}'
   become: true
   when: ansible_pkg_mgr == 'apt'
   tags: [ dotfiles ]
