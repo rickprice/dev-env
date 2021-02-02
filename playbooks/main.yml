@@ -1,9 +1,3 @@
-- name: Printing all the environment variables in Ansible
-  debug:
-    msg: "{{ ansible_env }}"
-  become_user: root
-  become: true
-
 - name: Install Common Development Tools
   hosts: 127.0.0.1
   connection: local
@@ -24,5 +18,9 @@
     - vscode
     - git
     - dbeaver
-  become_user: root
-  become: true
+  tasks:
+    - name: Printing all the environment​ variables in Ansible
+      debug:
+        msg: "{{ ansible_env }}"
+      become_user: root
+      become: true
