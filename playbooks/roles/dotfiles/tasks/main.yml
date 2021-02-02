@@ -1,0 +1,32 @@
+---
+# Install & Configure dotfiles
+
+- name: Ensure the requested shell is installed
+  apt:
+    pkgs:
+      - {{ dotfiles.shell }}
+  become: true
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ dotfiles ]
+
+- name: Set the default shell as requested
+  command: chsh --shell /bin/{{ dotfiles.shell }}
+  register: chsh_check
+  failed_when: chsh_check.rc > 0
+  changed_when: chsh_check.rc == 0
+  tags: [ dotfiles ]
+
+- name: 'Download users dotfiles {{ dottfiles.git_url }}'
+  git: 
+    repo: '{{ dotfiles.git_url | default ("https://github.com/rickprice/dotfiles.git") }}'
+    dest: ~/.dotfiles
+    force: yes
+  tags: [ dotfiles ]
+
+- name: Run the dotfiles setup
+  command: ~/.dotfiles/setup.sh
+  register: dotfiles_check
+  failed_when: dotfiles_check.rc > 0
+  changed_when: dotfiles_check.rc == 0
+  tags: [ dotfiles ]
+

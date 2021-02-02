@@ -1,0 +1,5 @@
+---
+
+dotfiles.shell: zsh
+dotfiles.git_url: https://github.com/rickprice/dotfiles.git
+
