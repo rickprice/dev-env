@@ -75,5 +75,4 @@ pip3_packages:
   - winrm
 
 # Where to install Rust
-rustup_home_suffix: /usr/local/bin
-rustup_cargo_home_suffix: /usr/local/bin
+rustup_user: rprice
