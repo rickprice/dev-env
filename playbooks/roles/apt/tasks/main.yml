@@ -1,15 +1,10 @@
 ---
 # Install & Configure Common Tools
 
-- name: APT update cache
-  apt: 
-    update_cache: yes
-  become: true
-
 - name: Install common tools
   apt:
-    pkg: "{{ item.name | default(item) }}{{ '=' + item.version if (item.version | default(False)) else '' }}"
-    state: present
-    force: yes
-  with_items: "{{ apt_packages | default([]) }}"
+    update_cache: yes
+    pkg: "{{ apt_packages | default([]) }}"
   become: true
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ packages ]
