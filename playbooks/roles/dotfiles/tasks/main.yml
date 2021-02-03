@@ -27,7 +27,7 @@
   tags: [ dotfiles ]
 
 - name: Run the dotfiles setup
-  command: setup.sh
+  command: ~/dotfiles/setup.sh
   register: dotfiles_check
   failed_when: dotfiles_check.rc > 0
   args:
