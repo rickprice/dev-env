@@ -5,6 +5,8 @@
   apt:
     package:
       - '{{ dotfiles_shell }}'
+      # Most people use stow for their dotfiles
+      - stow
   become: true
   when: ansible_pkg_mgr == 'apt'
   tags: [ dotfiles ]
