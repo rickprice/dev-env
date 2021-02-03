@@ -1,11 +1,10 @@
 ---
 # Install & Configure Common Tools
-  tasks:
-    - name: Printing all the environment variables in Ansible
-      debug:
-        msg: "apt_packages is: {{ apt_packages }}"
-      become_user: root
-      become: true
+- name: Printing all the environment variables in Ansible
+  debug:
+    msg: "apt_packages is: {{ apt_packages }}"
+  become_user: root
+  become: true
 
 - name: Install common tools
   apt:
