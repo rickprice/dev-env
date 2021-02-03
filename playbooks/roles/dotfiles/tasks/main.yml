@@ -10,10 +10,11 @@
   tags: [ dotfiles ]
 
 - name: Set the default shell as requested
-  command: chsh --shell /bin/{{ dotfiles_shell }}
+  command: chsh --shell /bin/{{ dotfiles_shell }} {{ ansible_env.USER }}
   register: chsh_check
   failed_when: chsh_check.rc > 0
   changed_when: chsh_check.rc == 0
+  become: true
   tags: [ dotfiles ]
 
 - name: 'Download users dotfiles {{ dotfiles_git_url }}'
