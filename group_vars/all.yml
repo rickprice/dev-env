@@ -26,7 +26,7 @@ apt_packages:
   - vifm
   - dos2unix
   - tmux
-  - gvim
+  - vim-gtk3
   # I use this one to strip ansii colour codes from files like logs
   - colorized-logs
   - pass
