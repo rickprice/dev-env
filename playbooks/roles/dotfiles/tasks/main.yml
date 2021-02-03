@@ -22,14 +22,16 @@
 - name: 'Download users dotfiles {{ dotfiles_git_url }}'
   git: 
     repo: '{{ dotfiles_git_url | default ("https://github.com/rickprice/dotfiles.git") }}'
-    dest: ~/.dotfiles
+    dest: ~/dotfiles
     force: no
   tags: [ dotfiles ]
 
 - name: Run the dotfiles setup
-  command: ~/.dotfiles/setup.sh
+  command: setup.sh
   register: dotfiles_check
   failed_when: dotfiles_check.rc > 0
+  args:
+    chdir: ~/dotfiles
   changed_when: dotfiles_check.rc == 0
   tags: [ dotfiles ]
 
