@@ -1,6 +1,4 @@
 ---
-# Configuration
-
 apt_packages:
   # These are packages that you basically always need to have around
   - curl
