@@ -30,8 +30,8 @@ apt_packages:
   - pass
   - mutt
   # This is needed for vim-clap and vim-todoist Neovim Plugins
-  - libssl-dev \
-  - build-essential \
+  - libssl-dev
+  - build-essential
   # Interesting software that I like
   - figlet
   # This is needed for coc-nvim
