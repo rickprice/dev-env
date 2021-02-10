@@ -22,7 +22,7 @@
 
 - name: Expand cargo_location
   environment:
-    cargo_location: {{ ansible_env.CARGO_HOME | default("~/.cargo") }}
+    cargo_location: '{{ ansible_env.CARGO_HOME | default("~/.cargo") }}'
   command: echo {{ cargo_location }}
   register: command_result
   tags: [ alacritty ]
