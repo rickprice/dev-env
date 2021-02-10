@@ -8,22 +8,16 @@
     - apt
     - git
     - neovim
-    - chrome
+    # - chrome
     - python
     - nodejs
     - ruby
-    - spotify
-    - dropbox
-    - vagrant
-    - docker
-    - vscode
-    - dbeaver
-
-- name: Install Dotfiles
-  hosts: 127.0.0.1
-  connection: local
-  roles:
-    - dotfiles
+    # - spotify
+    # - dropbox
+    # - vagrant
+    # - docker
+    # - vscode
+    # - dbeaver
 
 - name: Install Other Common Development Tools as normal user
   hosts: 127.0.0.1
@@ -31,6 +25,12 @@
   roles:
     - hurricanehrndz.rustup
     - alacritty
+
+- name: Install Dotfiles
+  hosts: 127.0.0.1
+  connection: local
+  roles:
+    - dotfiles
 
   # tasks:
   # - name: Print all variables
