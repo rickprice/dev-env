@@ -4,6 +4,7 @@
   ansible.builtin.apt_key:
     url: https://apt.releases.hashicorp.com/gpg
     state: present
+  become: yes
   when: ansible_pkg_mgr == 'apt'
   tags: [ vagrant ]
 
@@ -12,6 +13,7 @@
     repo: deb [arch=amd64] https://apt.releases.hashicorp.com groovy main
     state: present
     filename: hashicorp-vagrant
+  become: yes
   when: ansible_pkg_mgr == 'apt'
   tags: [ vagrant ]
 
