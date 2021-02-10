@@ -1,20 +1,35 @@
 ---
+- name: Install package prerequisites
+  apt:
+    pkg: 
+    - cmake 
+    - pkg-config 
+    - libfreetype6-dev 
+    - libfontconfig1-dev 
+    - libxcb-xfixes0-dev 
+    - python3
+  become: true
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ alacritty ]
 
 - name: 'Download alacritty {{ alacritty.git_url }}'
   git: 
     repo: '{{ alacritty.git_url | default ("https://github.com/alacritty/alacritty.git") }}'
     dest: /tmp/alacritty_repo
     force: yes
-  when: ansible_os_family == 'Debian' or ansible_os_family == 'Pop!_OS'
+  when: ansible_pkg_mgr == 'apt'
   tags: [ alacritty ]
 
+  May need to install packages needed as dependencies like:
+    libfontconfig-dev
+    libx11-xcb-dev
 - name: Run alacritty cargo build
   command: cargo build --release
   register: command_result
   args:
     chdir: /tmp/alacritty_repo
   environment:
-    PATH: '{{ ansible_env.PATH }}:{{ ansible_env.CARGO_HOME | default("~/.cargo") }}/bin'
-  when: ansible_os_family == 'Debian' or ansible_os_family == 'Pop!_OS'
+    PATH: '{{ ansible_env.PATH }}:{{ ansible_env.CARGO_HOME | default("{{ ansible_env.HOME }}/.cargo") }}/bin'
+  when: ansible_pkg_mgr == 'apt'
   tags: [ alacritty ]
 
