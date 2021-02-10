@@ -14,7 +14,7 @@
   args:
     chdir: /tmp/alacritty_repo
   environment:
-    PATH: '{{ ansible_env.PATH }}:~/.cargo/bin'
+    PATH: '{{ ansible_env.PATH }}:{{ ansible_env.CARGO_HOME | default("~/.cargo") }}/bin'
   when: ansible_os_family == 'Debian' or ansible_os_family == 'Pop!_OS'
   tags: [ alacritty ]
 

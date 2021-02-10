@@ -32,6 +32,8 @@
   failed_when: dotfiles_check.rc > 0
   args:
     chdir: ~/dotfiles
+  environment:
+    PATH: '{{ ansible_env.PATH }}:{{ ansible_env.CARGO_HOME | default("~/.cargo") }}/bin'
   changed_when: dotfiles_check.rc == 0
   tags: [ dotfiles ]
 
