@@ -21,12 +21,10 @@
   tags: [ alacritty ]
 
 - name: Run alacritty cargo build
-  command: cargo build --release
+  command: '{{ ansible_env.CARGO_HOME | default("{{ ansible_env.HOME }}/.cargo") }}/bin/cargo build --release'
   register: command_result
   args:
     chdir: /tmp/alacritty_repo
-  environment:
-    PATH: '{{ ansible_env.PATH }}:{{ ansible_env.CARGO_HOME | default("{{ ansible_env.HOME }}/.cargo") }}/bin'
   when: ansible_pkg_mgr == 'apt'
   tags: [ alacritty ]
 
