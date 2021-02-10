@@ -1,27 +1,39 @@
 ---
 - name: Install package prerequisites
   apt:
-    pkg: 
-    - cmake 
-    - pkg-config 
-    - libfreetype6-dev 
-    - libfontconfig1-dev 
-    - libxcb-xfixes0-dev 
+    pkg:
+    - cmake
+    - pkg-config
+    - libfreetype6-dev
+    - libfontconfig1-dev
+    - libxcb-xfixes0-dev
     - python3
   become: true
   when: ansible_pkg_mgr == 'apt'
   tags: [ alacritty ]
 
 - name: 'Download alacritty {{ alacritty.git_url }}'
-  git: 
+  git:
     repo: '{{ alacritty.git_url | default ("https://github.com/alacritty/alacritty.git") }}'
     dest: /tmp/alacritty_repo
     force: yes
   when: ansible_pkg_mgr == 'apt'
   tags: [ alacritty ]
 
+- name: Expand cargo_location
+  environment:
+    cargo_location: {{ ansible_env.CARGO_HOME | default("~/.cargo") }}
+  command: echo {{ cargo_location }}
+  register: command_result
+  tags: [ alacritty ]
+
+- name: Set expanded cargo_location variable
+  set_fact:
+    cargo_location_expanded: '{{ command_result.stdout }}'
+  tags: [ perlbrew ]
+
 - name: Run alacritty cargo build
-  command: '{{ ansible_env.CARGO_HOME | default("{{ ansible_env.HOME }}/.cargo") }}/bin/cargo build --release'
+  command: '{{ cargo_location_expanded }}/bin/cargo build --release'
   register: command_result
   args:
     chdir: /tmp/alacritty_repo
