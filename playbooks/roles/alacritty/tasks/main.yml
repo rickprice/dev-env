@@ -20,9 +20,6 @@
   when: ansible_pkg_mgr == 'apt'
   tags: [ alacritty ]
 
-  May need to install packages needed as dependencies like:
-    libfontconfig-dev
-    libx11-xcb-dev
 - name: Run alacritty cargo build
   command: cargo build --release
   register: command_result
