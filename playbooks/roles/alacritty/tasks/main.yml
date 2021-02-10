@@ -21,16 +21,14 @@
   tags: [ alacritty ]
 
 - name: Expand cargo_location
-  environment:
-    cargo_location: '{{ ansible_env.CARGO_HOME | default("~/.cargo") }}'
-  command: echo {{ cargo_location }}
+  command: echo {{ ansible_env.CARGO_HOME | default("~/.cargo") }}
   register: command_result
   tags: [ alacritty ]
 
 - name: Set expanded cargo_location variable
   set_fact:
     cargo_location_expanded: '{{ command_result.stdout }}'
-  tags: [ perlbrew ]
+  tags: [ alacritty ]
 
 - name: Run alacritty cargo build
   command: '{{ cargo_location_expanded }}/bin/cargo build --release'
