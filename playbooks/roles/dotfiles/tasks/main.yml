@@ -23,7 +23,7 @@
   git: 
     repo: '{{ dotfiles_git_url | default ("https://github.com/rickprice/dotfiles.git") }}'
     dest: ~/dotfiles
-    force: no
+    force: Yes
   tags: [ dotfiles ]
 
 - name: Run the dotfiles setup
