@@ -10,7 +10,7 @@
   tags: [ backgrounds ]
 
 - name: Set the background image
-  command: gsettings set org.gnome.desktop.background picture-uri file:////usr/share/backgrounds/wp3842657-lenovo-logo-wallpapers.jpg
+  command: gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/wp3842657-lenovo-logo-wallpapers.jpg
   become: true
   tags: [ backgrounds ]
 
