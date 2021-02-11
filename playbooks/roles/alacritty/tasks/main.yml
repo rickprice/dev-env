@@ -37,7 +37,7 @@
 
 - name:  Copy Alacritty binary into place
   ansible.builtin.copy:
-    src: /tmp/alacritty_repo/release/alacritty
+    src: /tmp/alacritty_repo/target/release/alacritty
     remote_src: True
     dest:  /usr/local/bin
     owner: root
