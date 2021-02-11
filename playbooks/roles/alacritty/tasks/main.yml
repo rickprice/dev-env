@@ -9,7 +9,6 @@
     - libxcb-xfixes0-dev
     - python3
   become: true
-  when: ansible_pkg_mgr == 'apt'
   tags: [ alacritty ]
 
 - name: 'Download alacritty {{ alacritty.git_url }}'
@@ -17,7 +16,6 @@
     repo: '{{ alacritty.git_url | default ("https://github.com/alacritty/alacritty.git") }}'
     dest: /tmp/alacritty_repo
     force: yes
-  when: ansible_pkg_mgr == 'apt'
   tags: [ alacritty ]
 
 - name: Expand cargo_location
@@ -35,12 +33,11 @@
   register: command_result
   args:
     chdir: /tmp/alacritty_repo
-  when: ansible_pkg_mgr == 'apt'
   tags: [ alacritty ]
 
 - name:  Copy Alacritty binary into place
   ansible.builtin.copy:
-    src: /tmp/alacritty_repo/release/alacritty
+    remote_src: /tmp/alacritty_repo/release/alacritty
     dest:  /usr/local/bin
     owner: root
     group: root
@@ -50,7 +47,7 @@
 
 - name:  Copy Alacritty svg into place
   ansible.builtin.copy:
-    src: /tmp/alacritty_repo/extra/logo/alacritty-term.svg
+    remote_src: /tmp/alacritty_repo/extra/logo/alacritty-term.svg
     dest:  /usr/share/pixmaps/Alacritty.svg
     owner: root
     group: root
