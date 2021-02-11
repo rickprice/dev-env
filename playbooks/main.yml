@@ -8,17 +8,17 @@
     - apt
     - git
     - neovim
-    # - chrome
+    - chrome
     - python
     - nodejs
     - ruby
     - iosevka
-    # - spotify
-    # - dropbox
-    # - vagrant
-    # - docker
-    # - vscode
-    # - dbeaver
+    - spotify
+    - dropbox
+    - vagrant
+    - docker
+    - vscode
+    - dbeaver
 
 - name: Install Other Common Development Tools as normal user
   hosts: 127.0.0.1
