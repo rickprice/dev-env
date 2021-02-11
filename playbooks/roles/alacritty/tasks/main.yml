@@ -38,3 +38,34 @@
   when: ansible_pkg_mgr == 'apt'
   tags: [ alacritty ]
 
+- name:  Copy Alacritty binary into place
+  ansible.builtin.copy:
+    src: /tmp/alacritty_repo/release/alacritty
+    dest:  /usr/local/bin
+    owner: root
+    group: root
+    mode: u+rwx,g+rx,o+rx
+  become: True
+  tags: [ alacritty ]
+
+- name:  Copy Alacritty svg into place
+  ansible.builtin.copy:
+    src: /tmp/alacritty_repo/extra/logo/alacritty-term.svg
+    dest:  /usr/share/pixmaps/Alacritty.svg
+    owner: root
+    group: root
+    mode: u+rw,g+r,o+r
+  become: True
+  tags: [ alacritty ]
+
+- name: Run alacritty desktop add
+  command:  desktop-file-install extra/linux/Alacritty.desktop
+  args:
+    chdir: /tmp/alacritty_repo
+  tags: [ alacritty ]
+  become: True
+
+- name: Run desktop database update
+  command:  update-desktop-database
+  become: True
+  tags: [ alacritty ]
