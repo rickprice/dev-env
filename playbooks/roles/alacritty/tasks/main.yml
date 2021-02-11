@@ -37,7 +37,8 @@
 
 - name:  Copy Alacritty binary into place
   ansible.builtin.copy:
-    remote_src: /tmp/alacritty_repo/release/alacritty
+    src: /tmp/alacritty_repo/release/alacritty
+    remote_src: True
     dest:  /usr/local/bin
     owner: root
     group: root
@@ -47,7 +48,8 @@
 
 - name:  Copy Alacritty svg into place
   ansible.builtin.copy:
-    remote_src: /tmp/alacritty_repo/extra/logo/alacritty-term.svg
+    src: /tmp/alacritty_repo/extra/logo/alacritty-term.svg
+    remote_src: True
     dest:  /usr/share/pixmaps/Alacritty.svg
     owner: root
     group: root
