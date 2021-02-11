@@ -1,6 +1,16 @@
 ---
-- name:  Install iosevka font
-  ansible.builtin.apt:
-    deb: http://phd-sid.ethz.ch/debian/fonts-iosevka/fonts-iosevka_4.0.0%2Bds-1_all.deb
+- name: Copy background image to wallpapers directory
+  ansible.builtin.copy:
+    src: wp3842657-lenovo-logo-wallpapers.jpg
+    dest: /usr/share/backgrounds
+    owner: root
+    group: root
+    mode: '0644'
   become: True
-  tags: [ iosevka ]
+  tags: [ backgrounds ]
+
+- name: Set the background image
+  command: gsettings set org.gnome.desktop.background picture-uri file:////usr/share/backgrounds/wp3842657-lenovo-logo-wallpapers.jpg
+  become: true
+  tags: [ backgrounds ]
+
