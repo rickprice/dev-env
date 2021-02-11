@@ -19,6 +19,7 @@
     - docker
     - vscode
     - dbeaver
+    - wallpaper
 
 - name: Install Other Common Development Tools as normal user
   hosts: 127.0.0.1

@@ -1,0 +1,6 @@
+---
+- name:  Install iosevka font
+  ansible.builtin.apt:
+    deb: http://phd-sid.ethz.ch/debian/fonts-iosevka/fonts-iosevka_4.0.0%2Bds-1_all.deb
+  become: True
+  tags: [ iosevka ]
