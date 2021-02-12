@@ -14,6 +14,7 @@
     - libcode-tidyall-perl
     - libdbd-pg-perl
     - cpanminus
+    - libio-aio-perl
   become: yes
   when: ansible_pkg_mgr == 'apt'
   tags: [ perl ]
