@@ -17,7 +17,7 @@
     url: https://download.brother.com/welcome/dlf006893/linux-brprinter-installer-2.2.2-2.gz
     dest: /tmp/PrinterInstall/linux-printer-installer.gz
   tags: [ printer ]
-  
+
 - name: Gunzip Printer Driver Script
   ansible.builtin.command: gunzip /tmp/PrinterInstall/linux-printer-installer.gz
   args:
