@@ -44,7 +44,7 @@
       'OK\? \[y/N\] ->': 'y'
       'Will you specify the Device URI\? \[Y/n\] ->': 'y'
       'select the number of destination Device URI\. ->': 'I'
-      'enter IP Address ->': '192.168.0.194'
+      'enter IP address ->': '192.168.0.194'
       'Test Print\? \[y/N\] ->': 'n'
       'Hit Enter/Return key.': ''
       'Do you agree\? \[Y/n\] ->': 'y'
