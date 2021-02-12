@@ -47,7 +47,7 @@
       'enter IP Address ->': '192.168.0.194'
       'Test Print? \[y/N\] ->': 'n'
       'Hit Enter/Return key.': ''
-      'Do you agree? \[y/N\] ->': 'y'
+      'Do you agree? \[Y/n\] ->': 'y'
     timeout: 180
   when: ansible_pkg_mgr == 'apt'
   tags: [ printer ]
