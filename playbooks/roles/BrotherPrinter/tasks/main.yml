@@ -21,7 +21,7 @@
 - name: Gunzip Printer Driver Script
   ansible.builtin.command:
     cmd: gunzip /tmp/PrinterInstall/linux-printer-installer.gz
-    creates: /tmp/PrinterInstall/linux-printer-installer
+  creates: /tmp/PrinterInstall/linux-printer-installer
   tags: [ printer ]
 
 - name: Make Printer Driver Script Executable
