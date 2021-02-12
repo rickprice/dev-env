@@ -1,0 +1,40 @@
+---
+
+- name: Install Perl
+  apt:
+    pkg:
+    - perl
+  become: yes
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ perl ]
+
+- name: Install Perl packages I care a lot about
+  apt:
+    pkg:
+    - libcode-tidyall-perl
+    - libdbd-pg-perl
+    - cpanminus
+  become: yes
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ perl ]
+
+- name: Install Perl::lLanguageServer
+  community.general.cpanm:
+    name: Perl::lLanguageServer
+    system_lib: True
+  become: yes
+  tags: [ perl ]
+
+- name: Install Neovim::Ext
+  community.general.cpanm:
+    name: Neovim::Ext
+    system_lib: True
+  become: yes
+  tags: [ perl ]
+
+- name: Install local::lib
+  community.general.cpanm:
+    name: local::lib
+    system_lib: True
+  become: yes
+  tags: [ perl ]

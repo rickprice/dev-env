@@ -13,6 +13,7 @@ apt_packages:
   - openjdk-15-jdk
   - keepassx
   - pandoc
+  - bash
   # These are packages I tend to use a lot
   - ripgrep
   - stow
