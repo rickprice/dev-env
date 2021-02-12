@@ -40,14 +40,13 @@
   ansible.builtin.expect:
     command: /tmp/PrinterInstall/linux-printer-installer
     responses:
-      'Input model name.*': 'MFC-L2700DW'
-      'OK\? \[y/N\]': 'y'
-      'Do you agree.*': 'y'
-      '(?i).*do you want to continue.*': 'y'
-      '(?i).*specify the device URI.*': 'y'
-      '(?i).*destination device URI.*': 'I'
-      '(?i).*ip address.*': '192.168.0.194'
-      '(?i).*test print.*': 'N'
-      '(?i).*hit enter.*': ''
+      'Input model name ->': 'MFC-L2700DW'
+      'OK\? \[y/N\] ->': 'y'
+      'Will you specify the Device URI? \[y/N\] ->': 'y'
+      'select the number of the destination Device URI. ->': 'I'
+      'enter IP Address ->': '192.168.0.194'
+      'Test Print? \[y/N\] ->': 'n'
+      'Hit Enter/Return key.': ''
+    timeout: 180
   when: ansible_pkg_mgr == 'apt'
   tags: [ printer ]
