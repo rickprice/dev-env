@@ -43,7 +43,7 @@
       'Input model name ->': 'MFC-L2700DW'
       'OK\? \[y/N\] ->': 'y'
       'Will you specify the Device URI\? \[Y/n\] ->': 'y'
-      'select the number of the destination Device URI. ->': 'I'
+      'select the number of destination Device URI\. ->': 'I'
       'enter IP Address ->': '192.168.0.194'
       'Test Print\? \[y/N\] ->': 'n'
       'Hit Enter/Return key.': ''
