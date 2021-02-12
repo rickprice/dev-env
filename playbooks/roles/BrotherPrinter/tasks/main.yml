@@ -6,6 +6,12 @@
   become: true
   tags: [ printer ]
 
+- name: Create directory if it does not exist
+  ansible.builtin.file:
+    path: /tmp/PrinterInstall
+    state: directory
+    mode: '0755'
+
 - name: Download Printer Drivers
   ansible.builtin.get_url:
     url: https://download.brother.com/welcome/dlf006893/linux-brprinter-installer-2.2.2-2.gz
