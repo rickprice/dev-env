@@ -41,7 +41,7 @@
     command: /tmp/PrinterInstall/linux-printer-installer
     responses:
       '(?i).*model.*': 'MFC-L2700DW'
-      '.* Ok .*': 'y'
+      '.* OK\? .*': 'y'
       '(?i).*specify the device URI.*': 'y'
       '(?i).*destination device URI.*': 'I'
       '(?i).*ip address.*': '192.168.0.194'
