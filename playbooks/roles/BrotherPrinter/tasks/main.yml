@@ -1,0 +1,38 @@
+---
+- name: Install package prerequisites
+  apt:
+    pkg:
+    - lib32z1
+  become: true
+  tags: [ printer ]
+
+- name: Download Printer Drivers
+  ansible.builtin.get_url:
+    url: https://download.brother.com/welcome/dlf006893/linux-brprinter-installer-2.2.2-2.gz
+    dest: /tmp/PrinterInstall/linux-printer-installer.gz
+  tags: [ printer ]
+  
+- name: Gunzip Printer Driver Script
+  ansible.builtin.command:
+    command: gunzip /tmp/PrinterInstall/linux-printer-installer.gz
+  tags: [ printer ]
+
+- name: Make Printer Driver Script Executable
+  ansible.builtin.file:
+    dest: /tmp/PrinterInstall/linux-printer-installer
+    mode: a+x
+  tags: [ printer ]
+
+- name: Install Printer Drivers using script
+  ansible.builtin.expect:
+    command: /tmp/PrinterInstall/linux-printer-installer
+    responses:
+      '(?i)model': 'MFC-L2700DW'
+      '(?i)ok': 'y'
+      '(?i)specify the device URI': 'y'
+      '(?i)destination device URI': 'I'
+      '(?i)ip address': '192.168.0.194'
+      '(?i)test print': 'N'
+      '(?i)hit enter': ''
+  when: ansible_pkg_mgr == 'apt'
+  tags: [ printer ]
