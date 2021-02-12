@@ -42,12 +42,12 @@
     responses:
       'Input model name ->': 'MFC-L2700DW'
       'OK\? \[y/N\] ->': 'y'
-      'Will you specify the Device URI? \[y/N\] ->': 'y'
+      'Will you specify the Device URI\? \[y/N\] ->': 'y'
       'select the number of the destination Device URI. ->': 'I'
       'enter IP Address ->': '192.168.0.194'
-      'Test Print? \[y/N\] ->': 'n'
+      'Test Print\? \[y/N\] ->': 'n'
       'Hit Enter/Return key.': ''
-      'Do you agree? \[Y/n\] ->': 'y'
+      'Do you agree\? \[Y/n\] ->': 'y'
     timeout: 180
   when: ansible_pkg_mgr == 'apt'
   tags: [ printer ]
