@@ -18,9 +18,9 @@
   when: ansible_pkg_mgr == 'apt'
   tags: [ perl ]
 
-- name: Install Perl::lLanguageServer
+- name: Install Perl::LanguageServer
   community.general.cpanm:
-    name: Perl::lLanguageServer
+    name: Perl::LanguageServer
     system_lib: True
   become: yes
   tags: [ perl ]
