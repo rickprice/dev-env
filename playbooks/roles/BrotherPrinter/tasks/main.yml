@@ -48,6 +48,7 @@
       'Test Print\? \[y/N\] ->': 'n'
       'Hit Enter/Return key.': ''
       'Do you agree\? \[Y/n\] ->': 'y'
+      'Do you want to continue\? \[Y/n\] ': 'y'
     timeout: 180
   when: ansible_pkg_mgr == 'apt'
   tags: [ printer ]
