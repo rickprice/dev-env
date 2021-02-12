@@ -22,6 +22,7 @@
   community.general.cpanm:
     name: Perl::LanguageServer
     system_lib: True
+    installdeps: True
   become: yes
   tags: [ perl ]
 
@@ -29,12 +30,14 @@
   community.general.cpanm:
     name: Neovim::Ext
     system_lib: True
+    installdeps: True
   become: yes
   tags: [ perl ]
 
 - name: Install local::lib
   community.general.cpanm:
     name: local::lib
+    installdeps: True
     system_lib: True
   become: yes
   tags: [ perl ]
