@@ -40,9 +40,9 @@
   ansible.builtin.expect:
     command: /tmp/PrinterInstall/linux-printer-installer
     responses:
-      '(?i).*model.*': 'MFC-L2700DW'
-      '.*OK.*': 'y'
-      '(?i).*do you agree.*': 'y'
+      'Input model name.*': 'MFC-L2700DW'
+      'OK\? \[y/N\]': 'y'
+      'Do you agree.*': 'y'
       '(?i).*do you want to continue.*': 'y'
       '(?i).*specify the device URI.*': 'y'
       '(?i).*destination device URI.*': 'I'
