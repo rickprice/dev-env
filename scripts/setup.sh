@@ -8,7 +8,7 @@ DIR=~/.dev-env
 #sudo apt-get update
 
 # Install Git, Python3, PIP and Ansible
-sudo apt-get install -y git python3 python3-pip ansible python-pexpect
+sudo apt-get install -y git python3 python3-pip ansible
 
 # Install collections
 ansible-galaxy collection install community.general
