@@ -42,6 +42,7 @@
     responses:
       '(?i).*model.*': 'MFC-L2700DW'
       '.*OK.*': 'y'
+      '(?i).*do you agree.*': 'y'
       '(?i).*specify the device URI.*': 'y'
       '(?i).*destination device URI.*': 'I'
       '(?i).*ip address.*': '192.168.0.194'
