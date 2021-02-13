@@ -63,6 +63,7 @@ ruby_gems:
   - jekyll
   - rake
   - sass
+  - neovim
 
 pip2_packages:
   - fabric
