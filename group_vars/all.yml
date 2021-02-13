@@ -72,5 +72,6 @@ pip3_packages:
   - requests
   - beautifulsoup4
   - Jinja2
+  - jedi
     # Needed for Ansible to talk to Windows hosts
   - winrm
