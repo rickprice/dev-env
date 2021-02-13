@@ -5,6 +5,7 @@
   become: true
   roles:
     - RemapCapsLockToCtrl
+    - lockscreen
     - apt
     - git
     - neovim
