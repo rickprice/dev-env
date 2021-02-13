@@ -5,11 +5,11 @@
   community.general.gem:
     name: neovim
     state: present
-  become: false
+  become: true
 
 - name: Install configured gems.
   gem:
     name: "{{ item }}"
     state: present
-  become: false
+  become: true
   with_items: "{{ ruby_gems | default([]) }}"
