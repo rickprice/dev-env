@@ -1,0 +1,12 @@
+---
+- name: Timeout for blanking screen
+  # Timeout for blanking the screen (seconds; 0 = never):
+  command: gsettings set org.gnome.desktop.session idle-delay 3600
+  become: False
+  tags: [ lockscreen ]
+
+- name: Timeout for locking screen
+  # Timeout for locking the screen after blanking (seconds; 0 = instant):
+  command: gsettings set org.gnome.desktop.screensaver lock-delay 5
+  become: False
+  tags: [ lockscreen ]
