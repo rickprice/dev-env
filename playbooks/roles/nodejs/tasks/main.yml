@@ -25,3 +25,13 @@
   become: yes
   when: ansible_pkg_mgr == 'apt'
   tags: [ nodejs ]
+
+- name: Configure Yarn for NeoVim
+  command: yarn global add neovim
+  become: yes
+  tags: [ nodejs ]
+
+- name: Configure NPM for NeoVim
+  command: npm install -g neovim
+  become: yes
+  tags: [ nodejs ]
